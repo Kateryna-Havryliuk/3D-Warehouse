@@ -1,0 +1,284 @@
+/* Головні зміни*/
+
+.app-container {
+    min-height: 100vh;
+    background: #f5f6fa;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    opacity: 0.9;
+    font-size: 0.95em;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.map-section {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    overflow: hidden;
+}
+
+.map-toolbar {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    align-items: center;
+}
+
+.map-container {
+    position: relative;
+    height: 600px;
+    background: #2c3e50;
+    overflow: hidden;
+}
+
+#warehouseSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Стилі для стелажів */
+.rack {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rack:hover rect {
+    filter: brightness(1.2);
+    stroke-width: 3;
+}
+
+/* Панель результатів пошуку */
+.search-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    max-height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.result-group {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 15px;
+}
+
+.result-rack {
+    font-weight: bold;
+    color: #3498db;
+    cursor: pointer;
+    margin-bottom: 8px;
+    padding: 8px;
+    background: #ebf5fb;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.result-rack:hover {
+    background: #d4e6f1;
+}
+
+/* Сайдбар */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+}
+
+/* Візуалізація полиць у модалці */
+.shelves-container {
+    margin-top: 20px;
+}
+
+.shelf-row {
+    margin-bottom: 15px;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.shelf-label {
+    background: #34495e;
+    color: white;
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.shelf-bar {
+    height: 30px;
+    background: #ecf0f1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.shelf-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    transition: width 0.3s;
+}
+
+.shelf-count {
+    position: absolute;
+    right: 10px;
+    font-size: 0.85em;
+    color: #7f8c8d;
+}
+
+.shelf-items {
+    padding: 10px;
+    background: #f8f9fa;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.shelf-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 0.9em;
+}
+
+/* Адаптивність */
+@media (max-width: 1200px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .panel {
+        flex: 1;
+        min-width: 300px;
+    }
+}
+
+/* Додаткові стилі для функціональності */
+
+.rack {
+    transition: all 0.2s;
+}
+
+.rack:hover {
+    filter: brightness(1.1);
+}
+
+.shelves-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.shelf-group {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 3px solid #3498db;
+}
+
+.shelf-group h4 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+    font-size: 0.95em;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 0.9em;
+}
+
+.item-row:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    flex: 1;
+}
+
+.item-qty {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.empty {
+    color: #7f8c8d;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.result-group h4 {
+    margin: 0 0 10px 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.result-group h4:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Скролбар */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
